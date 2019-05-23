@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    <header>
+        <h3>Chatbot</h3>
+    </header>
+    <div class="chat">
+        <div class="message message__right">
+            <p class="message__user">IK</p>
+            <p class="message__text message__text--mine">Hey hoe gaat die?</p>
+        </div>
+        <div class="message">
+                <p class="message__user">Iemand</p>
+                <p class="message__text message__text--other">Niet zo goed, nog heel veel werk..</p>
+            </div>
+    </div>
+    <footer>
+        <div class="talk">
+           <input type="text" name="talk" id="talk" class="field field--chat">
+               <button class="btn btn--secondary">Send</button>
+            </div>
+    </footer>
+    <script>
+        fetch('http://localhost:3000/api/v1/messages',{
+            'headers': {
+                    'Authorization': 'Bearer ' + localStorage.getItem('token')
+                }
+            }).then(result => {
+                return resul.json();
+            }).then(json => {
+                console.log(json)
+            }).catch(err => {
+                console.log("nope")
+            });
+    </script>
+</body>
+</html>

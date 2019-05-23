@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    <h1>Welcome to ChatBot</h1>
+    <div class="container">
+        <h2>Login</h2>
+        <div class="alert hidden">
+            Here comes feedback
+        </div>
+        <div class="login">
+            <div>
+                <label for="username">Email</label>
+                <input type="text" name="username" id="username" class="field">
+            </div>
+            <div>
+                <label for="password">Password</label>
+                <input type="password" name="password" id="password" class="field">
+            </div>
+            <button id="log" class="btn btn--primary">Login</button>
+            <a href="/signup">Are you new here? Create an account</a>
+        </div>
+    </div>
+    <script>
+            var login = document.querySelector('#log').addEventListener('click', function(){
+                let username = document.querySelector('#username').value;
+                let password = document.querySelector('#password').value;
+    
+                fetch('http://localhost:3000/users/login', {
+                    method: "post",
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }, body: JSON.stringify({
+                        "username": username,
+                        "password": password
+                    })
+                }).then(response => {
+                        return response.json();
+                    }).then(json => {
+                        if(json.status === "succes") {
+                            let token = json.data.token;
+                            localStorage.setItem("token", token);
+                            window.location.href = "/";
+                        } else {
+                            let feedback = document.querySelector('.alert');
+                            feedback.textContent = "Can't log you in";
+                            feedback.classList.remove('hidden');
+                        }
+                    });
+            });
+            
+        </script> 
+</body>
+</html>

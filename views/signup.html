@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    <h1>Welcome to ChatBot</h1>
+    <div class="container">
+        <h2>Create an account</h2>
+        <div class="alert hidden">
+            Here comes feedback
+        </div>
+        <div class="signup">
+            <div>
+                <label for="username">Username</label>
+                <input type="text" name="username" id="username" class="field">
+            </div>
+            <div>
+                <label for="password">Password</label>
+                <input type="password" name="password" id="password" class="field">
+            </div>
+            <button id="sign" class="btn btn--primary">Sign Up</button>
+        </div>
+    </div>
+    <script>
+        var signUp = document.querySelector('#sign').addEventListener('click', function(){
+            let username = document.querySelector('#username').value;
+            let password = document.querySelector('#password').value;
+
+            fetch('http://localhost:3000/users/signup', {
+                method: "post",
+                headers: {
+                    'Content-Type': 'application/json'
+                }, body: JSON.stringify({
+                    "username": username,
+                    "password": password
+                })
+            }).then(response => {
+                    return response.json();
+                }).then(json => {
+                    if(json.status === "succes") {
+                        let feedback = document.querySelector('.alert');
+                        feedback.textContent = "Good Job";
+                        feedback.classList.remove('hidden');
+
+                        let token = json.data.token;
+                        localStorage.setItem("token", token);
+                        window.location.href = "/";
+                    }
+                });
+        });
+        
+    </script>
+</body>
+</html>

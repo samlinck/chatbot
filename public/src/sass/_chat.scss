@@ -1,0 +1,65 @@
+header {
+    margin-top: -30px;
+    width: 100%;
+    z-index: 1;
+    background-color: $primaryColor;
+}
+
+h3 {
+    font-size: 30px;
+    padding: 20px;
+}
+
+.chat {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    margin-left: auto;
+    margin-right: auto;
+    min-height: 600px;
+}
+
+.message {
+    display: flex;
+    align-items: flex-end;
+}
+
+.message__right {
+    flex-direction: row-reverse;
+}
+
+.talk {
+    display: flex;
+    width: 40%;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: space-between;
+}
+
+.message__text {
+    display: block;
+    padding: 10px 15px;
+    margin: 20px;
+    border-radius: 10px;
+}
+.message__text--mine {
+    align-self: flex-end;
+    background-color: $secondaryColor;
+}
+
+.message__text--other {
+    align-self: flex-start;
+    background-color: $tertiaryColor;
+}
+
+.btn--secondary {
+    color: white;
+    background-image: linear-gradient(to bottom right, $secondaryColor, lighten( $secondaryColor, 20% ));
+    margin-left: 20px;
+    height: 50px;
+    margin-top: 0;
+}
+
+.field--chat {
+    height: 50px;
+}

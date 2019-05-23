@@ -1,0 +1,96 @@
+* {
+    box-sizing: border-box;
+}
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+body {
+    background-image: linear-gradient(to bottom right, $primaryColor, $tertiaryColor);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: white;
+    font-family: $text;
+}
+
+h1,h2,h3 {
+    font-family: $titles;
+}
+
+
+
+.container {
+    display:flex;
+    width: 35%;
+    margin-left: auto;
+    margin-right: auto;
+    flex-direction: column;
+    align-items: center;
+    background: $secondaryColor;
+    padding-bottom: 50px;
+    border-radius: 10px;
+}
+
+h1 {
+    margin: 75px 0;
+    text-align: center;
+    font-size: 3em;
+}
+
+h2 {
+    font-size: 2em;
+}
+
+.signup, .login {
+    label {
+        display: block;
+        font-size: 20px;
+        margin: 10px 0;
+    }
+
+    a {
+        display: block;
+        color: white;
+        text-decoration: none;
+        margin-top: 10px;
+    }
+}
+
+.field {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    font-family: $text;
+    font-size: 20px;
+}
+
+.btn {
+    padding: 15px;
+    margin: 10px 0;
+    font-size: 20px;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+}
+
+.hidden {
+    display: none;
+}
+
+.btn:hover {
+    position: relative;
+    top:2px;
+}
+
+.btn:active {
+    position: relative;
+    top: 2px;
+    left: 2px;
+  }
+
+.btn--primary {
+    color: white;
+    background-image: linear-gradient(to bottom right, $tertiaryColor, lighten( $tertiaryColor, 2% ));
+}
