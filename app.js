@@ -5,6 +5,7 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const cors = require('cors');
 const passport = require('./passport/passport');
+const config = require('config');
 
 const indexRouter = require('./routes/index');
 const signupRouter = require('./routes/signup');
@@ -14,7 +15,7 @@ const apiMessagesRouter = require('./routes/api/v1/messages');
 
 const mongoose = require('mongoose');
 mongoose.set('useCreateIndex', true);
-mongoose.connect('mongodb://localhost:27017/messageApi', {
+mongoose.connect(process.env.dbconn || config.get('Database.conn'), {
   useNewUrlParser: true
 });
 
