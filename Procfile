@@ -1,1 +1,1 @@
-web: node/bin/www
+web: ./node_modules/.bin/nodemon ./bin/www
